@@ -1,0 +1,40 @@
+<form *ngIf="client">
+
+  <!--   Image and information profile   -->
+  <div class="img-info">
+    <div class="img-name">
+      <img src="http://kyrsovoi/S2.png">
+      <div class="name">{{client.Name}}</div>
+    </div>
+    <div class="my-info">
+      <div class="my-info-text">Моя інформація</div>
+      <div class="info">
+        <div class="email">Email:{{client.Email}}</div>
+
+      </div>
+    </div>
+  </div>
+  <!--   Latest 5 rate   -->
+  <div class="latest-rate">
+    <div class="text-rate">Останні ставки</div>
+    <div class="rates">
+
+      <div class="rate" *ngFor="let items of prodBets">
+        <div class="name-rate">{{items.item.name}}</div>
+        <div class="status">Моя ставка:{{items.item.samaStavka}} грн.</div>
+        <div class="src-page"><a [routerLink]="['/system/product', items.item.id_tovar]">На сторінку</a></div>
+      </div>
+    </div>
+  </div>
+  <!--   Latest 5 win   -->
+  <div class="latest-win">
+    <div class="text-win">Останні виграші</div>
+    <div class="wins">
+      <div class="win" *ngFor="let items of prodWins">
+        <div class="name-win">{{items.item.name}}</div>
+        <div class="src-page">Ціна: {{items.item.samaStavka}}грн.</div>
+        <div class="src-page"><a href="https://www.donationalerts.com/r/olesha2020">Сплатити</a></div>
+      </div>
+    </div>
+  </div>
+</form>

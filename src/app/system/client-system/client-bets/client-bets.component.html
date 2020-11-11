@@ -1,0 +1,13 @@
+<div class="tovar" *ngFor="let items of prodBets">
+  <div class="tovar__inner">
+    <img src="http://kyrsovoi/photos/{{items.img}}.jpg">
+    <div class="text">
+      <span>{{items.name}}</span>
+      <span>Моя ставка: {{items.samaStavka}} грн.</span>
+    </div>
+  </div>
+  <div class="tovar__edit">
+    <a [routerLink]="['/system/product', items.id_tovar]">На сторінку товару</a>
+  </div>
+</div>
+

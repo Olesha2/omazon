@@ -1,0 +1,83 @@
+
+
+
+<form *ngIf="product">
+
+  <div class="img-profile-rate">
+
+    <div class="img-slider">
+      <div class="img">
+<!--        <li *ngFor="let items of images">-->
+<!--          <img src="http://kyrsovoi/photos/{{items.item.id_images}}.jpg" height="10%" width="10%" alt="">-->
+<!--        </li>-->
+        <img src="http://kyrsovoi/photos/{{product.image}}.jpg">
+      </div>
+      <div class="slider">
+        <h3><  --  1  --  8  --  ></h3>
+      </div>
+    </div>
+
+    <div class="profile-rate">
+
+      <div class="img-profile-name">
+        <img src="http://kyrsovoi/S2.png" width="30%" height="30%">
+        <div class="name-email">
+          <span>{{product.cliName}}</span>
+          <span>{{product.cliEmail}}</span>
+        </div>
+      </div>
+
+
+      <div class="rate">
+        <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="text-rate">
+            <span>До кінця аукціону: {{7 - product.dayloss}} {{Days(7-product.dayloss)}}.</span>
+            <span>Остання ставка: {{product.samaStavka}} грн.</span>
+            <span>Мінімальна ставка   {{product.min_rate}} грн.</span>
+            <div *ngIf="CheckActive(); else succesStatus" id="add-rate">
+							<span>Підняти ставку до
+							<input
+                type="text"
+                name=""
+                id="input_rate"
+                formControlName="bet"
+              > грн.</span>
+            </div>
+            <div *ngIf="CheckActive()" id="but">
+              <button *ngIf="IfAuth(); else goRegister"
+                      type="submit"
+                      class="add_rate"
+              >
+                Підняти ставку
+              </button>
+              <ng-template #goRegister>
+                <a [routerLink]="['//registration']">
+                  <button
+
+                    class="add_rate"
+                  >
+                    Підняти ставку
+                  </button>
+                </a>
+              </ng-template>
+            </div>
+          </div>
+
+          <ng-template #succesStatus>
+            <p>Ставки на цій товар закінчено</p>
+          </ng-template>
+        </form>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="name-desc">
+    <h3>{{product.name}}</h3>
+    <p>Категория: {{product.catName}}</p>
+    <span><p>{{product.about}}</p></span>
+  </div>
+
+</form>

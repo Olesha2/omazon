@@ -1,0 +1,59 @@
+<div class="filters">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="filter1">
+
+    <div class="filter-in-category">
+      <span>Категорія</span>
+      <select formControlName="category">
+        <option value="0">-Не обрано-</option>
+        <option *ngFor="let item of category" value="{{item.id_category}}">{{item.name}}</option>
+      </select>
+    </div>
+
+    <div class="filter-in-day">
+      <span>Срок ставок</span>
+      <div class="start-end-day">
+        <i>Від</i>
+        <input type="text" name="" class="enter-day-min" formControlName="minDay">
+        <i>До</i>
+        <input type="text" name="" class="enter-day-max" formControlName="maxDay">
+      </div>
+    </div>
+    <div class="filter-in-sum">
+      <span>Сумма ставки</span>
+      <div class="start-end-sum">
+        <i>Від</i>
+        <input type="text" name="" class="inputput-sum-min" formControlName="rateMin">
+        <i>До</i>
+        <input type="text" name="" class="input-sum-max" formControlName="rateMax">
+      </div>
+    </div>
+  </div>
+  <div class="enter">
+    <button type="submit" class="enter-filter">Примінити фільтри</button>
+    <button class="drop-filter">Скасувати фільтри</button>
+  </div>
+  </form>
+</div>
+<h3>Товарів було знайдено: {{products?.length}}</h3>
+<div class="list-tovar">
+
+  <div class="tovar" *ngFor="let items of products">
+    <div class="img">
+      <img src="http://kyrsovoi/photos/{{items.id_images}}.jpg">
+    </div>
+    <div class="name-tovar">
+      <span>{{items.name}}</span>
+      <span>Категорія: {{items.category}}</span>
+    </div>
+    <div class="info">
+      <span>Актуальна ставка: {{items.samaStavka}}</span>
+      <span>Мінімальна ставка: {{items.minRate}}</span>
+      <span>Дата окінчення: {{7 - items.dayloss}} {{Days(7-items.dayloss)}}</span>
+    </div>
+    <div class="go-in-tovar">
+      <a [routerLink]="['/system/product', items.id_tovar]">На сторінку</a>
+    </div>
+  </div>
+
+</div>

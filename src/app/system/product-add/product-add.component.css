@@ -1,0 +1,122 @@
+.container
+{
+  background-color: #f0f1f3;
+  max-width: 1400px;
+  height: 200vh;
+  margin: 0 auto;
+}
+h1,h2,h3,h4,h5 {margin: 0;padding: 0;}
+
+.add-new-tovar-text
+{
+  text-align: center;
+  font-size: 36px;
+  padding-top: 30px;
+}
+.block-add-pole {
+  padding: 0 100px;
+  margin-top: 100px;
+}
+span {display: block;font-size: 24px;color: #6ab1d0;}
+.add-name {
+  border: none;
+  font-size: 18px;
+  margin-top: 10px;
+  border-bottom: 2px solid green;
+  background-color:#f0f1f3;
+  width: 500px;
+}
+.category-tovar {padding-top: 70px;}
+.add-category {
+  margin-top: 10px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 2px solid green;
+  background-color:#f0f1f3;
+  width: 500px;
+}
+.price {
+  display: flex;
+  padding-top: 70px;
+  justify-content: space-between;
+  margin: 0 200px;
+}
+.add-price {
+  border: none;
+  margin-top: 10px;
+  border-bottom: 2px solid green;
+  background-color:#f0f1f3;
+  width: 100px;
+  font-size: 18px;
+}
+.grn {
+  display: inline-block;
+  font-size: 24px;
+}
+.desc-tovar {
+  margin-top: 70px;
+}
+.add-desc {
+  margin-top: 20px;
+  width: 90%;
+  height: 150px;
+  font-size: 14px;
+  resize: none;
+}
+.add-photo {
+  margin-top: 70px;
+}
+.add-photo >button {
+  padding: 15px 30px;
+  background-color: #8eddc3;
+  color: white;
+  font-size: 18px;
+
+}
+.added-photo {
+  margin: 0 auto;
+  margin-top: 10px;
+  height: 250px;
+  width: 95%;
+  background-color: white;
+}
+.add-lot {text-align: center;margin-top:100px; }
+.add-lot .button {
+  padding: 20px 40px;
+  background-color: #0275d8;
+  text-decoration: none;
+  border: 2px solid green;
+  color: white;
+  font-size: 18px;
+}
+.add-lot .button:hover {
+  display: inline-block;
+  transform: scale(1.1,1.1);
+  transition: transform 0.1s;
+}
+.add-lot .button:disabled {
+  cursor: not-allowed;
+  opacity: .65;
+  background-color: #52bcd3;
+
+
+}
+.imageproduct>img{
+  max-height: 260px;
+padding: 10px;
+
+}
+.imageproduct{
+  padding: 5 px;
+  background-color: #fff;
+  min-width: 100%;
+  min-height: 200px;
+  list-style-type: none;
+  display: flex;
+  overflow-x: auto;
+}
+
+.form-help-text{
+  color: #fb494d;
+  font-size: 15px;
+}

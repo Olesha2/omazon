@@ -1,0 +1,99 @@
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+
+  <div class="add-new-tovar-text">Додавання нового товару</div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="block-add-pole">
+    <div class="name-tovar">
+      <span class="name-text">Назва товару</span>
+      <input
+        type="text"
+        name=""
+        class="add-name"
+        formControlName="name"
+      >
+      <span class="form-help-text"
+            *ngIf="form.get('name').invalid && form.get('name').touched"
+      >
+        <span class="form-help-text" *ngIf="form.get('name')['errors']['required']">Назва товару не може бути порожнью</span>
+         <span class="form-help-text" *ngIf="form.get('name')['errors']['maxlength']">
+         пароль повинен бути коротше
+           {{form.get('name')['errors']['maxlength']['requiredLength']}} символів.
+          Зараз {{form.get('name')['errors']['maxlength']['actualLength']}}</span>
+      </span>
+    </div>
+    <div class="category-tovar">
+      <span class="name-text">Категорія товару</span>
+      <select class="add-category" formControlName="category">
+        <option id="type" *ngFor="let item of category" value="{{item.id_category}}">{{item.name}}</option>
+      </select>
+    </div>
+    <div class="price">
+      <div class="price-tovar">
+        <span class="name-text">Початкова ціна</span>
+        <input
+          type="text"
+          name=""
+          class="add-price"
+          formControlName="price"
+        >
+        <div class="grn">Грн.</div>
+        <span class="form-help-text"
+              *ngIf="form.get('price').invalid && form.get('price').touched"
+        >
+           <span class="form-help-text" *ngIf="form.get('price')['errors']['required']">Початкова ціна товару не може бути порожньою</span>
+          <span class="form-help-text" *ngIf="form.get('price')['errors']['pattern']">Початкова ціна невалідна</span>
+
+ </span>
+
+      </div>
+
+      <div class="price-min">
+        <span class="name-text">Мінімальна ставка</span>
+        <input
+          type="text"
+          name=""
+          class="add-price"
+          formControlName="min_price"
+        >
+        <div class="grn">Грн.</div>
+        <span class="form-help-text"
+              *ngIf="form.get('min_price').invalid && form.get('min_price').touched"
+        >
+           <span class="form-help-text" *ngIf="form.get('min_price')['errors']['required']">Мінімальна ціна товару не може бути порожньою</span>
+          <span class="form-help-text" *ngIf="form.get('min_price')['errors']['pattern']">Мінімальна ціна невалідна</span>
+           </span>
+      </div>
+    </div>
+    <div class="desc-tovar">
+      <span class="name-text">Описання товару</span>
+      <textarea
+        class="add-desc"
+        formControlName="about"
+      >
+        <span class="form-help-text"
+              *ngIf="form.get('about').invalid && form.get('about').touched"
+        >
+          </span>
+      </textarea>
+    </div>
+
+    <div class="add-photo">
+      <input
+        style="display: none"
+        #fileInput
+        multiple
+        type="file" (change)="onFileSelected($event)"
+
+      >
+      <button type="button" (click)="fileInput.click()">Завантажити фото</button>
+    </div>
+    <li class="imageproduct">
+      <img *ngFor="let link of links" id="" src="{{ link }}" alt="">
+    </li>
+    <div class="add-lot">
+      <button class="button" type="submit" name="names"  [disabled]="form.invalid">Відправити</button>
+</div>
+  </div>
+  </form>

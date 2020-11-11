@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<header>
+  <div class="navigation">
+    <div class="menu">
+      <div class="menu-znak">
+        <div class="znak-menu"></div>
+        <div class="znak-menu"></div>
+        <div class="znak-menu"></div>
+      </div>
+      <div class="menu-hover">
+        <a href="" class="li">Недвижимость</a>
+        <a href="" class="li">Траспорт</a>
+        <a href="" class="li">Хобби</a>
+        <a href="" class="li">Электроника</a>
+      </div>
+    </div>
+    <div id="icon">
+      <a [routerLink]="['/system/main']">
+      <img src="assets/logo_omazon.png" width="75%">
+      </a>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div id="find">
+      <input type="" name="finder" id="find-bar" formControlName="searchValue">
+      <button type="submit" [disabled]="form.invalid" class="buttonSeacrh">
+      <img src="assets/loupe.png" width="38px"></button>
+    </div>
+      </form>
+    <div id="my-profile">
+      <img src="http://kyrsovoi/S2.png" width="38x">
+      <h1>
+        <a *ngIf="IfAuth(); else succesStatus" [routerLink]="['/system/clientSys/client', id]">Мой профиль</a>
+        <ng-template #succesStatus>
+          <a [routerLink]="['../registration']">Мой профиль</a>
+        </ng-template>
+
+      </h1>
+    </div>
+  </div>
+</header>
+<div class="container">
+<router-outlet></router-outlet>
+</div>
+
+<footer>
+  <div id="information">
+    <a href=""><h5>Условия пользования</h5></a>
+    <a href=""><h5>Помощь и Обратная связь</h5></a>
+    <a href=""><h5>Политика конфиденциальности</h5></a>
+  </div>
+  <button (click)="LohOut()">выйти </button>
+</footer>

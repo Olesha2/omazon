@@ -1,0 +1,146 @@
+header{
+  position: relative;
+}
+* {
+  box-sizing: border-box;
+}
+h1,h2,h3,h4,h5
+{
+  margin:0;
+  padding:0;
+}
+.navigation {
+  background-color: #131921;
+  width: 100%;
+  max-width: 2000px;
+  height: 6.5vh;
+}
+.menu {
+  padding: 20px 0;
+  padding-left: 30px;
+}
+.znak-menu:first-child {
+  margin-top: 0;
+}
+.znak-menu {
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  margin: 6px 0;
+}
+.menu-hover {
+  position: absolute;
+  top: 68px;
+  left: 0;
+  max-width: 300px;
+  width: 100%;
+  z-index: 1;
+  display: none;
+  opacity: 0.9;
+}
+.li {
+  padding: 20px 0;
+  background-color: #33484b;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+}
+.li:hover {
+  background-color: #33484b;
+  color: red;
+  transition: background-color 0.2s;
+}
+.menu:hover .menu-hover {display: inherit; }
+#icon {
+  position: absolute;
+  width: 10%;
+  height: 4%;
+  left: 130px;
+  top:13px;
+}
+#find
+{
+  position: absolute;
+  height: 5%;
+  left: 24%;
+  top: 13px;
+  width: 60%;
+
+}
+#find-bar
+{
+  width: 80%;
+  height: 38px;
+  outline: none;
+  border: none;
+}
+#button-find
+{
+  position: absolute;
+  width: 50px;
+  height: 38px;
+  color: yellow;
+  background-color: #febd69;
+}
+#find >a> img
+{
+  position: absolute;
+  padding-left: 5px;
+  padding-top: 2px;
+}
+#my-profile {
+  left: 78%;
+  position: absolute;
+  font-size: 10px;
+  top:10px;
+  display: flex;
+}
+#my-profile > img {
+  margin-left: 20px;
+  position: absolute;
+}
+#my-profile >h1
+{
+  font-family: Playfair Display;
+  margin-left: 65px;
+}
+#my-profile > h1 :hover
+{
+  color: yellow;
+}
+#my-profile >h1>a {color: white; text-decoration: none;}
+.container
+{
+  background-color: #f0f1f3;
+  max-width: 1400px;
+  height: 165vh;
+  margin: auto;
+}
+footer {
+  background-color:#33484b;
+  height: 15vh;
+  position: relative;
+}
+#information {
+  left: 10%;
+  top: 10px;
+  position: absolute;
+}
+#information > a {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  margin-top: 5px;
+  display: flex;
+}
+@media (max-width: 1650px) {
+  .find {max-width: 700px; width: 100%;}
+}
+.buttonSeacrh{
+  background-color: yellow;
+}
+.buttonSeacrh:disabled{
+  background-color: gray;
+}
