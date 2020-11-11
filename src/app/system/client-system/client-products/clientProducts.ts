@@ -5,6 +5,7 @@ export class clientProducts {
   daysLost: string;
   imgAddr: string;
   SamaStavka: number;
+
   constructor(
     values: object
   ) {

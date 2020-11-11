@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 
 @Component({
@@ -9,6 +9,7 @@ import {CookieService} from 'ngx-cookie-service';
 export class ClientSystemComponent implements OnInit {
 
   id = this.cookieService.get('id');
+
   constructor(private cookieService: CookieService,
               // private systemService: SystemService
   ) {

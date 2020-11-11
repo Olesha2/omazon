@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Product} from '../../product-page/product';
 import {ClientPageService} from './client-page.service';
 import {Client} from './client';
 import {productClientwins} from './product-clientwins';
@@ -14,23 +13,27 @@ import {clientbets} from './clientbets';
 })
 export class ClientPageComponent implements OnInit {
 
+  id: string;
+  client: Client;
+  prodWins: productClientwins[];
+  prodBets: clientbets[];
+  error = '';
+  success = '';
+
   constructor(
     private route: ActivatedRoute,
     private clientPageService: ClientPageService
-  ) { }
-  id: string;
-client: Client;
-prodWins: productClientwins[];
-prodBets: clientbets[];
-  error = '';
-  success = '';
-  ngOnInit(): void {
-   this.id = this.route.snapshot.params['id'];
-   this.getClient();
-   this.getWins();
-   this.getBets();
+  ) {
   }
-  getClient( ): void {
+
+  ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.getClient();
+    this.getWins();
+    this.getBets();
+  }
+
+  getClient(): void {
     this.clientPageService.getClient(this.id).subscribe(
       (res: Client) => {
         console.log(res);
@@ -41,7 +44,8 @@ prodBets: clientbets[];
       }
     );
   }
-  getWins(): void{
+
+  getWins(): void {
     this.clientPageService.getWins(this.id).subscribe(
       (res: productClientwins[]) => {
         this.prodWins = res.map(item => new productClientwins({item}));
@@ -52,7 +56,8 @@ prodBets: clientbets[];
       }
     );
   }
-  getBets(): void{
+
+  getBets(): void {
     this.clientPageService.getBets(this.id).subscribe(
       (res: clientbets[]) => {
         this.prodBets = res.map(item => new clientbets({item}));

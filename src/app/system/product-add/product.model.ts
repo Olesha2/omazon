@@ -7,7 +7,6 @@ export class Products {
     public photos: [],
     public min_price: number,
     public id: number,
-
-) {
+  ) {
   }
 }

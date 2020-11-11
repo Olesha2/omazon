@@ -4,6 +4,7 @@ export class clientbets {
   StavkaClienta: number;
   id_tovar: number;
   dayloss: number;
+
   constructor(
     values: object
   ) {

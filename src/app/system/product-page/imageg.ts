@@ -1,7 +1,6 @@
-
-
 export class imageg {
   id_image: number;
+
   constructor(
     values: object
   ) {

@@ -1,9 +1,8 @@
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 
-
-  <div class="add-new-tovar-text">Додавання нового товару</div>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="add-new-tovar-text">Додавання нового товару</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="block-add-pole">
     <div class="name-tovar">
       <span class="name-text">Назва товару</span>
@@ -16,7 +15,8 @@
       <span class="form-help-text"
             *ngIf="form.get('name').invalid && form.get('name').touched"
       >
-        <span class="form-help-text" *ngIf="form.get('name')['errors']['required']">Назва товару не може бути порожнью</span>
+        <span class="form-help-text"
+              *ngIf="form.get('name')['errors']['required']">Назва товару не може бути порожнью</span>
          <span class="form-help-text" *ngIf="form.get('name')['errors']['maxlength']">
          пароль повинен бути коротше
            {{form.get('name')['errors']['maxlength']['requiredLength']}} символів.
@@ -62,7 +62,8 @@
               *ngIf="form.get('min_price').invalid && form.get('min_price').touched"
         >
            <span class="form-help-text" *ngIf="form.get('min_price')['errors']['required']">Мінімальна ціна товару не може бути порожньою</span>
-          <span class="form-help-text" *ngIf="form.get('min_price')['errors']['pattern']">Мінімальна ціна невалідна</span>
+          <span class="form-help-text"
+                *ngIf="form.get('min_price')['errors']['pattern']">Мінімальна ціна невалідна</span>
            </span>
       </div>
     </div>
@@ -93,7 +94,7 @@
       <img *ngFor="let link of links" id="" src="{{ link }}" alt="">
     </li>
     <div class="add-lot">
-      <button class="button" type="submit" name="names"  [disabled]="form.invalid">Відправити</button>
-</div>
+      <button class="button" type="submit" name="names" [disabled]="form.invalid">Відправити</button>
+    </div>
   </div>
-  </form>
+</form>

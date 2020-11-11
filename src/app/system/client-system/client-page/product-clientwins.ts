@@ -4,6 +4,7 @@ export class productClientwins {
   SamaStavka: number;
   id_tovar: number;
   dayloss: number;
+
   constructor(
     values: object
   ) {

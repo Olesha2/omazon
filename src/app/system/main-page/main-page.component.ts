@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from './product';
-import { MainPageService } from './main-page.service';
+import {Component, OnInit} from '@angular/core';
+import {Product} from './product';
+import {MainPageService} from './main-page.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -13,8 +13,11 @@ export class MainPageComponent implements OnInit {
   error = '';
   success = '';
 
-  constructor(private productService: MainPageService,
-              private route: ActivatedRoute) { }
+  constructor(
+    private productService: MainPageService,
+    private route: ActivatedRoute
+  ) {
+  }
 
   ngOnInit() {
     this.getProducts();

@@ -15,7 +15,9 @@ export class ClientPageService {
   client: Client;
   prodWins: productClientwins[];
   prodBets: clientbets[];
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {
+  }
 
   getClient(id: string): Observable<Client> {
     const formData = new FormData();
@@ -30,18 +32,18 @@ export class ClientPageService {
         catchError(this.handleError));
   }
 
-getWins(id: string): Observable<productClientwins[]> {
-  const formData = new FormData();
-  formData.append('id', id);
-  return this.http.post(`${this.baseUrl}/get_wins.php`, formData)
-    .pipe(
-      map((res) => {
-        this.prodWins = res['data'];
+  getWins(id: string): Observable<productClientwins[]> {
+    const formData = new FormData();
+    formData.append('id', id);
+    return this.http.post(`${this.baseUrl}/get_wins.php`, formData)
+      .pipe(
+        map((res) => {
+          this.prodWins = res['data'];
 
-        return this.prodWins;
-      }),
-      catchError(this.handleError));
-}
+          return this.prodWins;
+        }),
+        catchError(this.handleError));
+  }
 
   getBets(id: string): Observable<clientbets[]> {
     const formData = new FormData();

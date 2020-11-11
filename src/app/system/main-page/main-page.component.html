@@ -1,54 +1,58 @@
 <div class="categories">
-    <div id="category">
-      <h3>Недвижимость</h3>
-      <a [routerLink]="['/system/categories', 1]">Смотреть все </a>
-      <div class="images-tovars">
-        <ul class="imageproduct" href="">
-          <li *ngFor="let item of products">
+  <div id="category">
+    <h3>Недвижимость</h3>
+    <a [routerLink]="['/system/categories', 1]">Смотреть все </a>
+    <div class="images-tovars">
+      <ul class="imageproduct" href="">
+        <li *ngFor="let item of products">
           <a [routerLink]="['/system/product', item.id_tovar]">
-          <img *ngIf="item.id_category==1" src="http://kyrsovoi/photos/{{item.image_tovar}}.jpg" class="img-prod" width="15%" height="15%">
+            <img *ngIf="item.id_category==1" src="http://kyrsovoi/photos/{{item.image_tovar}}.jpg" class="img-prod"
+                 width="15%" height="15%">
           </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div id="category">
-      <h3>Транспорт</h3>
-      <a [routerLink]="['/system/categories', 2]">Смотреть все </a>
-      <div class="images-tovars">
-        <ul class="imageproduct" href="">
-          <li *ngFor="let item of products">
-            <a [routerLink]="['/system/product', item.id_tovar]">
-              <img *ngIf="item.id_category==2" src="http://kyrsovoi/photos/{{item.image_tovar}}.jpg"  width="15%" height="90%">
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div id="category">
-      <h3>Хобби</h3>
-      <a [routerLink]="['/system/categories', 3]">Смотреть все </a>
-      <div class="images-tovars">
-        <ul class="imageproduct" href="">
-          <li *ngFor="let item of products">
-            <a [routerLink]="['/system/product', item.id_tovar]">
-              <img *ngIf="item.id_category==3" src="http://kyrsovoi/photos/{{item.image_tovar}}.jpg"  width="15%" height="15%">
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div id="category">
-      <h3>Электроника</h3>
-      <a [routerLink]="['/system/categories', 4]">Смотреть все </a>
-      <div class="images-tovars">
-        <ul class="imageproduct" href="">
-          <li *ngFor="let item of products">
-            <a [routerLink]="['/system/product', item.id_tovar]">
-              <img *ngIf="item.id_category==4" src="http://kyrsovoi/photos/{{item.image_tovar}}.jpg"  width="15%" height="90%">
-            </a>
-          </li>
-        </ul>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
+  <div id="category">
+    <h3>Транспорт</h3>
+    <a [routerLink]="['/system/categories', 2]">Смотреть все </a>
+    <div class="images-tovars">
+      <ul class="imageproduct" href="">
+        <li *ngFor="let item of products">
+          <a [routerLink]="['/system/product', item.id_tovar]">
+            <img *ngIf="item.id_category==2" src="http://kyrsovoi/photos/{{item.image_tovar}}.jpg" width="15%"
+                 height="90%">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="category">
+    <h3>Хобби</h3>
+    <a [routerLink]="['/system/categories', 3]">Смотреть все </a>
+    <div class="images-tovars">
+      <ul class="imageproduct" href="">
+        <li *ngFor="let item of products">
+          <a [routerLink]="['/system/product', item.id_tovar]">
+            <img *ngIf="item.id_category==3" src="http://kyrsovoi/photos/{{item.image_tovar}}.jpg" width="15%"
+                 height="15%">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="category">
+    <h3>Электроника</h3>
+    <a [routerLink]="['/system/categories', 4]">Смотреть все </a>
+    <div class="images-tovars">
+      <ul class="imageproduct" href="">
+        <li *ngFor="let item of products">
+          <a [routerLink]="['/system/product', item.id_tovar]">
+            <img *ngIf="item.id_category==4" src="http://kyrsovoi/photos/{{item.image_tovar}}.jpg" width="15%"
+                 height="90%">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -18,7 +18,8 @@ import {SearchComponent} from './search/search.component';
 
 const routes: Routes = [
   // {path: 'main', component: MainPageComponent},
-  {path: '', component: SystemComponent, children: [
+  {
+    path: '', component: SystemComponent, children: [
       {path: 'main', component: MainPageComponent},
       {path: 'add', component: ProductAddComponent, canActivate: [AuthGuard]},
 
@@ -31,15 +32,18 @@ const routes: Routes = [
       {path: 'search', redirectTo: 'error'},
       {path: 'search/:name', component: SearchComponent},
 
-      {path: 'clientSys', component: ClientSystemComponent, canActivate: [AuthGuard], children:[
+      {
+        path: 'clientSys', component: ClientSystemComponent, canActivate: [AuthGuard], children: [
           {path: 'client', redirectTo: 'error'},
           {path: 'client/:id', component: ClientPageComponent, canActivate: [AuthGuard]},
           {path: 'client_products', component: ClientProductsComponent, canActivate: [AuthGuard]},
           {path: 'my-bets', component: ClientBetsComponent, canActivate: [AuthGuard]},
           {path: 'my-wins', component: ClientWinsComponent, canActivate: [AuthGuard]},
-        ]},
+        ]
+      },
 
-    ]}
+    ]
+  }
 ];
 
 @NgModule({

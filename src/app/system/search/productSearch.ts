@@ -1,4 +1,3 @@
-
 export class productSearch {
   id_tovar: number;
   id_images: number;
@@ -7,6 +6,7 @@ export class productSearch {
   dateloss: number;
   rate: number;
   minRate: number;
+
   constructor(
     values: object
   ) {

@@ -9,20 +9,23 @@ import {catchError, map} from 'rxjs/operators';
 })
 export class ClientProductsService {
   baseUrl = 'http://kyrsovoi';
-  constructor(private http: HttpClient) { }
   cliProds: clientProducts[];
-getClientProductsS(id: string): Observable<clientProducts[]>{
-  const formData = new FormData();
-  formData.append('id', id);
-  return this.http.post(`${this.baseUrl}/get_cliProds.php`, formData)
-    .pipe(
-      map((res) => {
-        this.cliProds = res['data'];
+  constructor(private http: HttpClient) {
+  }
 
-        return this.cliProds;
-      }),
-      catchError(this.handleError));
-}
+  getClientProductsS(id: string): Observable<clientProducts[]> {
+    const formData = new FormData();
+    formData.append('id', id);
+    return this.http.post(`${this.baseUrl}/get_cliProds.php`, formData)
+      .pipe(
+        map((res) => {
+          this.cliProds = res['data'];
+
+          return this.cliProds;
+        }),
+        catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     console.log(error);
 

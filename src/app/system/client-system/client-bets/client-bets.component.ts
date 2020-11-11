@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {ClientPageService} from '../client-page/client-page.service';
 
@@ -11,16 +11,22 @@ import {clientbets} from '../client-page/clientbets';
 })
 export class ClientBetsComponent implements OnInit {
 
-  constructor(
-    private cookieService: CookieService,
-    private clientPageService: ClientPageService ) { }
   prodBets: clientbets[];
   ClientId = this.cookieService.get('id');
   error: string;
+
+  constructor(
+    private cookieService: CookieService,
+    private clientPageService: ClientPageService) {
+  }
+
+
+
   ngOnInit(): void {
     this.getBets();
   }
-  getBets(): void{
+
+  getBets(): void {
     this.clientPageService.getBets(this.ClientId).subscribe(
       (res: clientbets[]) => {
         this.prodBets = res.map(item => new clientbets({...item}));

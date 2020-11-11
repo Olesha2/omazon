@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {Product} from './product';
 import {productPageService} from './product-page.service';
 import {ActivatedRoute} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Products} from '../product-add/product.model';
 import {CookieService} from 'ngx-cookie-service';
 import {imageg} from './imageg';
+
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
@@ -14,11 +14,6 @@ import {imageg} from './imageg';
 })
 export class ProductPageComponent implements OnInit {
   // tslint:disable-next-line:no-shadowed-variable
-  constructor(
-    private productPageService: productPageService,
-  private route: ActivatedRoute,
-  private cookieService: CookieService
-) { }
   product: Product;
   images: imageg[];
   error = '';
@@ -27,6 +22,16 @@ export class ProductPageComponent implements OnInit {
   activeProduct = 1;
   form: FormGroup;
   idClient = this.cookieService.get('id');
+
+  constructor(
+    private productPageService: productPageService,
+    private route: ActivatedRoute,
+    private cookieService: CookieService
+  ) {
+  }
+
+
+
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
 
@@ -36,7 +41,8 @@ export class ProductPageComponent implements OnInit {
       bet: new FormControl(null, [Validators.required])
     });
   }
-  getProduct( ): void {
+
+  getProduct(): void {
     this.productPageService.getAll(this.id).subscribe(
       (res: Product) => {
         console.log(res);
@@ -47,11 +53,12 @@ export class ProductPageComponent implements OnInit {
       }
     );
   }
-  getImages(): void{
+
+  getImages(): void {
     this.productPageService.getImages(this.id).subscribe(
       (res: imageg[]) => {
         this.images = res.map(item => new imageg({item}));
-       // console.log(this.images[0].item['id_images']);
+        // console.log(this.images[0].item['id_images']);
       },
       (err) => {
         this.error = err;
@@ -60,25 +67,40 @@ export class ProductPageComponent implements OnInit {
 
   }
 
-  onSubmit(){
+  onSubmit() {
 
-    this.productPageService.postBet(this.id, this.form.value, this.idClient).subscribe(( id: string) => {
-      this.getProduct(); });
+    this.productPageService.postBet(this.id, this.form.value, this.idClient).subscribe((id: string) => {
+      this.getProduct();
+    });
 
   }
-CheckActive(){
-  if (this.product.dayloss > 7) { this.activeProduct = 0; }
-return this.activeProduct;
+
+  CheckActive() {
+    if (this.product.dayloss > 7) {
+      this.activeProduct = 0;
+    }
+    return this.activeProduct;
   }
+
   private mess: string;
-  Days(day: number): string{
+
+  Days(day: number): string {
     // tslint:disable-next-line:label-position no-unused-expression
 
-    if (day >= 5){this.mess = 'днів'; }
-    if (day >= 2 && day <= 4){this.mess = 'дні'; }
-    if (day <= 1){this.mess = 'день'; }
-    return  this.mess;
+    if (day >= 5) {
+      this.mess = 'днів';
+    }
+    if (day >= 2 && day <= 4) {
+      this.mess = 'дні';
+    }
+    if (day <= 1) {
+      this.mess = 'день';
+    }
+    return this.mess;
   }
-  IfAuth(){return this.cookieService.get('user');}
+
+  IfAuth() {
+    return this.cookieService.get('user');
+  }
 
 }

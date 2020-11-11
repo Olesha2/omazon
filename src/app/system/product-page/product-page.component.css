@@ -1,4 +1,3 @@
-
 /*                      */
 .img-profile-rate {
   max-width: 1000px;
@@ -8,65 +7,82 @@
   display: flex;
   justify-content: space-between;
 }
-.img-slider {max-width: 400px; width: 100%;}
+
+.img-slider {
+  max-width: 400px;
+  width: 100%;
+}
+
 .img {
   width: 100%;
   height: 400px;
 }
+
 .img > img {
   width: 100%;
   height: 100%;
 }
+
 .slider {
   width: 100%;
   height: 80px;
   background-color: white;
 }
-.slider >h3 {
+
+.slider > h3 {
   font-weight: 50;
   font-size: 40px;
   text-align: center;
   padding: 10px 0;
 }
-.profile-rate{
+
+.profile-rate {
   max-width: 532px;
   width: 100%;
   height: 355px;
 }
+
 .img-profile-name {
   display: flex;
   justify-content: space-between;
   padding: 5px 40px;
   border: 2px solid green;
 }
+
 .img-profile-name > span {
   font-size: 40px;
   display: block;
   padding-top: 40px;
 }
+
 .name-email span {
   display: block;
   font-size: 24px;
   padding-top: 17px;
 }
+
 .rate {
   margin-top: 20px;
   height: 100%;
   border: 2px solid green;
 }
+
 .text-rate {
   text-align: center;
   padding-top: 20px;
 }
+
 .text-rate span {
   font-weight: 400;
   line-height: 1.5;
   font-size: 30px;
   display: block;
 }
+
 .text-rate span:last-child {
   padding-top: 20px;
 }
+
 #input_rate {
   border: none;
   border-bottom: 2px solid green;
@@ -74,6 +90,7 @@
   font-size: 30px;
   background-color: #f0f1f3;
 }
+
 .add_rate {
   padding: 10px 40px;
   display: block;
@@ -87,6 +104,7 @@
   text-decoration: none;
   color: black;
 }
+
 .name-desc {
   height: 250px;
   background-color: white;
@@ -94,10 +112,12 @@
   margin: 0 auto;
   margin-top: 50px;
 }
+
 .name-desc > h3 {
   text-align: center;
   padding-top: 20px;
 }
+
 .name-desc > span {
   margin-top: 30px;
   padding: 0 40px;
@@ -106,14 +126,18 @@
 }
 
 /*                   */
-@media (max-width: 800px) , (max-device-width: 800px){
+@media (max-width: 800px) , (max-device-width: 800px) {
 
   .img-profile-rate {
     flex-wrap: wrap;
     width: 600px;
     justify-content: center;
   }
-  .profile-rate {margin-top: 30px;}
+
+  .profile-rate {
+    margin-top: 30px;
+  }
+
   .name-desc {
     position: relative;
     top: 130px;

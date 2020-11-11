@@ -1,20 +1,26 @@
-.container
-{
+.container {
   background-color: #f0f1f3;
   max-width: 1400px;
   height: 200vh;
   margin: 0 auto;
 }
+
 .filters {
   border: 3px solid green;
   margin: 0 50px;
   padding: 50px 100px;
 }
+
 .filter1 {
   display: flex;
   justify-content: space-between;
 }
-span {display: block;font-size: 24px;}
+
+span {
+  display: block;
+  font-size: 24px;
+}
+
 select {
   font-size: 18px;
   border: none;
@@ -22,19 +28,25 @@ select {
   border-bottom: 2px solid green;
   padding-top: 10px;
 }
-input{
+
+input {
   font-size: 18px;
   border: none;
   width: 100px;
   background-color: #f0f1f3;
   border-bottom: 2px solid green;
 }
-.start-end-day,.start-end-sum {padding-top: 10px; }
+
+.start-end-day, .start-end-sum {
+  padding-top: 10px;
+}
+
 .enter {
   text-align: center;
   margin-top: 60px;
   display: block;
 }
+
 .enter a {
   margin: 0 30px;
   padding: 10px 20px;
@@ -42,15 +54,18 @@ input{
   color: #000000;
   text-decoration: none;
 }
+
 .enter a:hover {
   background-color: green;
   color: white;
   transition: 0.5s;
 }
+
 .list-tovar {
   margin-top: 30px;
   padding: 0 120px;
 }
+
 .tovar {
   border: 2px solid green;
   width: 100%;
@@ -60,37 +75,47 @@ input{
   display: flex;
   align-items: center;
 }
+
 .tovar:hover {
   transform: scale(1.1);
   transition: 0.2s;
 }
-.tovar >.img{
+
+.tovar > .img {
   width: 15%;
   margin-left: 20px;
 }
-.img > img {width: 100%;height: 100%;}
+
+.img > img {
+  width: 100%;
+  height: 100%;
+}
+
 .name-tovar {
   margin-left: 10px;
   line-height: 2.5;
   width: 30%;
 }
-.info > span
-{
+
+.info > span {
   font-size: 18px;
   padding-top: 14px;
   margin-left: 100px;
 }
+
 .go-in-tovar {
   border: 2px solid green;
   margin-left: 10%;
 }
-.go-in-tovar >a{
+
+.go-in-tovar > a {
   text-decoration: none;
   color: green;
   display: block;
-  padding:20px 40px;
+  padding: 20px 40px;
 }
-.go-in-tovar >a:hover{
+
+.go-in-tovar > a:hover {
   color: white;
   border: 2px solid white;
   background-color: green;

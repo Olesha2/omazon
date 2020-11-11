@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import {Observable, throwError} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
 import {Categories} from './category';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,8 @@ export class CategoryService {
   baseUrl = 'http://kyrsovoi/get_category.php';
   category: Categories[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getCategories(): Observable<Categories[]> {
     return this.http.get(`${this.baseUrl}`).pipe(
@@ -21,6 +23,7 @@ export class CategoryService {
       }),
       catchError(this.handleError));
   }
+
   private handleError(error: HttpErrorResponse) {
     console.log(error);
 

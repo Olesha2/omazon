@@ -1,6 +1,7 @@
 export class Client {
   Email: string;
   Name: string;
+
   constructor(
     values: object
   ) {

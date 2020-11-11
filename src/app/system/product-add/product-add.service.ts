@@ -8,14 +8,15 @@ import {Products} from './product.model';
   providedIn: 'root'
 })
 export class ProductAddService {
-  bul = 0;
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {
+  }
 
   addProduct(product: Products): Observable<any> {
     console.log(product);
     const formData = new FormData();
-    Object.keys(product).forEach( key => formData.append(key, product[key]));
-    Object.keys(product['photos']).forEach( key => formData.append(key, product['photos'][key]));
+    Object.keys(product).forEach(key => formData.append(key, product[key]));
+    Object.keys(product['photos']).forEach(key => formData.append(key, product['photos'][key]));
     return this.http.post<any>(`http://kyrsovoi/addProduct.php`, formData);
   }
 }

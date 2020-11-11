@@ -1,5 +1,3 @@
-
-
 export class Product {
   id_tovar: number;
   id_category: number;
@@ -12,11 +10,12 @@ export class Product {
   dayloss: number;
   cliName: string;
   cliEmail: string;
+
   constructor(
     values: object
   ) {
-  Object.keys(values).forEach(key => {
-    this[key] = values[key];
-  });
+    Object.keys(values).forEach(key => {
+      this[key] = values[key];
+    });
   }
 }
