@@ -16,6 +16,7 @@ export class SearchComponent implements OnInit {
 
   form: FormGroup;
   products: productSearch[];
+  products1: productSearch[];
   error: string;
   searchName = this.route.snapshot.params.name;
   category: Categories[];
@@ -86,14 +87,20 @@ export class SearchComponent implements OnInit {
   }
 
   filterProducts(
-    category: number,
+    category: string,
     daysMin: number,
     daysMax: number,
     minRate: number,
     maxRate: number,
   ) {
 
-    console.log(category);
+if(category!="0"){
+
+   this.products.filter(value => category);
+
+
+  console.log(this.products1);
+}
   }
 
   getCategories(): void {
