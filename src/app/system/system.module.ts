@@ -8,12 +8,12 @@ import {SystemComponent} from './system.component';
 import {ProductAddComponent} from './product-add/product-add.component';
 import {ClientPageComponent} from './client-system/client-page/client-page.component';
 import {ProductPageComponent} from './product-page/product-page.component';
-import {CategoryProductsComponent} from './category-products/category-products.component';
 import {ClientProductsComponent} from './client-system/client-products/client-products.component';
 import {ClientBetsComponent} from './client-system/client-bets/client-bets.component';
 import {ClientWinsComponent} from './client-system/client-wins/client-wins.component';
 import {ClientSystemComponent} from './client-system/client-system.component';
 import {SearchComponent} from './search/search.component';
+
 
 @NgModule({
   imports: [
@@ -28,7 +28,6 @@ import {SearchComponent} from './search/search.component';
     ProductAddComponent,
     ClientPageComponent,
     ProductPageComponent,
-    CategoryProductsComponent,
     ClientProductsComponent,
     ClientBetsComponent,
     ClientWinsComponent,

@@ -25,6 +25,12 @@ export class ClientProductsService {
         }),
         catchError(this.handleError));
   }
+  deleteProduct(idProd: string) {
+    console.log('ddd');
+    const formData = new FormData();
+    formData.append('id', idProd);
+    return this.http.post(`${this.baseUrl}/delete_product.php`, formData);
+  }
 
   private handleError(error: HttpErrorResponse) {
     console.log(error);

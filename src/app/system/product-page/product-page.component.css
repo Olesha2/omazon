@@ -79,7 +79,7 @@
   display: block;
 }
 
-.text-rate span:last-child {
+.text-rate .upBet {
   padding-top: 20px;
 }
 
@@ -98,7 +98,7 @@
   background-color: #d9f091;
   width: 250px;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 20px;
   /*font-size: 24px;*/
   border: 2px solid green;
   text-decoration: none;
@@ -142,4 +142,25 @@
     position: relative;
     top: 130px;
   }
+}
+.imageproduct > img {
+  max-height: 80px;
+padding: 1px;
+}
+
+.imageproduct {
+  padding: 5px;
+  background-color: #fff;
+  min-width: 100%;
+  min-height: 10px;
+  list-style-type: none;
+  display: flex;
+  overflow-x: auto;
+}
+.form-help-text {
+  padding-top: 1px;
+  color: #fb494d;
+  font-size: 13px;
+  text-align: right;
+  padding-right: 120px;
 }

@@ -5,9 +5,10 @@ import {CategoryService} from './category.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProductAddService} from './product-add.service';
 import {Products} from './product.model';
-import {Product} from '../main-page/product';
 import {HttpClient} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
+import {ActivatedRoute} from '@angular/router';
+import {ProductsEdit} from './ProductEdit';
 
 @Component({
   selector: 'app-product-add',
@@ -17,14 +18,16 @@ import {CookieService} from 'ngx-cookie-service';
 export class ProductAddComponent implements OnInit {
   form: FormGroup;
   category: Categories[];
+  edId = '0';
   error = '';
   success = '';
   selectedFile: File[] = [];
-
+  productEdit: ProductsEdit;
   links: Array<string | ArrayBuffer> = [];
 
   constructor(
     private cookieService: CookieService,
+    private route: ActivatedRoute,
     private categoryService: CategoryService,
     private productAddService: ProductAddService,
     private http: HttpClient) {
@@ -32,6 +35,7 @@ export class ProductAddComponent implements OnInit {
 
 
   ngOnInit() {
+this.ifEdit();
     this.getCategories();
     this.form = new FormGroup({
       'name': new FormControl(null, [Validators.required, Validators.maxLength(50)]),
@@ -51,14 +55,14 @@ export class ProductAddComponent implements OnInit {
     const product = new Products(name, category, price, about, photos, min_price, id);
     // tslint:disable-next-line:no-shadowed-variable
     console.log(this.form.value);
-    this.productAddService.addProduct(product).subscribe((product: Products) => {
+    this.productAddService.addProduct(product, this.edId).subscribe((product: Products) => {
       console.log(this.form.value);
     });
   }
 
   getCategories(): void {
     this.categoryService.getCategories().subscribe(
-      (res: Product[]) => {
+      (res: Categories[]) => {
         this.category = res;
       },
       (err) => {
@@ -79,5 +83,34 @@ export class ProductAddComponent implements OnInit {
 
       fr.readAsDataURL(this.selectedFile[i]);
     }
+  }
+
+  ifEdit(){
+    if(this.route.snapshot.params.id_tov){
+this.EditProduct();
+this.edId = this.route.snapshot.params.id_tov;
+    }
+  }
+  EditProduct(){
+this.productAddService.getEdit(this.route.snapshot.params.id_tov).subscribe(
+  (res: ProductsEdit) => {
+    console.log(res);
+    this.productEdit = new ProductsEdit({...res});
+    this.links = [];
+    for (let i of this.productEdit.photos){
+      this.links.push("http://kyrsovoi/photos/"+i+".jpg");
+    }
+    this.form.patchValue({
+      name: this.productEdit.name,
+      category: this.productEdit.id_category,
+      price: this.productEdit.samaStavka,
+      min_price: this.productEdit.min_rate,
+      about: this.productEdit.about
+    });
+  },
+  (err) => {
+    this.error = err;
+  }
+);
   }
 }

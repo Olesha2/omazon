@@ -6,6 +6,7 @@ import {ActivatedRoute} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import {imageg} from './imageg';
+import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
 
 @Component({
   selector: 'app-product-page',
@@ -37,9 +38,7 @@ export class ProductPageComponent implements OnInit {
 
     this.getProduct();
     this.getImages();
-    this.form = new FormGroup({
-      bet: new FormControl(null, [Validators.required])
-    });
+
   }
 
   getProduct(): void {
@@ -47,6 +46,9 @@ export class ProductPageComponent implements OnInit {
       (res: Product) => {
         console.log(res);
         this.product = new Product({...res});
+        this.form = new FormGroup({
+          bet: new FormControl(null, [Validators.required, Validators.pattern('[0-9]+'), Validators.min(this.product.min_rate)])
+        });
       },
       (err) => {
         this.error = err;
@@ -68,15 +70,15 @@ export class ProductPageComponent implements OnInit {
   }
 
   onSubmit() {
-
-    this.productPageService.postBet(this.id, this.form.value, this.idClient).subscribe((id: string) => {
+    console.log(+this.product.samaStavka + 1 * this.form.value.bet);
+    this.productPageService.postBet(this.id, (+this.product.samaStavka + 1 * this.form.value.bet).toString(), this.idClient).subscribe((id: string) => {
       this.getProduct();
     });
 
   }
 
   CheckActive() {
-    if (this.product.dayloss > 7) {
+    if (this.product.dayloss >= 7) {
       this.activeProduct = 0;
     }
     return this.activeProduct;
@@ -87,13 +89,13 @@ export class ProductPageComponent implements OnInit {
   Days(day: number): string {
     // tslint:disable-next-line:label-position no-unused-expression
 
-    if (day >= 5) {
+    if (day >= 5 || day == 0) {
       this.mess = 'днів';
     }
     if (day >= 2 && day <= 4) {
       this.mess = 'дні';
     }
-    if (day <= 1) {
+    if (day === 1) {
       this.mess = 'день';
     }
     return this.mess;
@@ -103,4 +105,7 @@ export class ProductPageComponent implements OnInit {
     return this.cookieService.get('user');
   }
 
+  selectImage(id_images: string): void {
+    this.product.image = id_images;
+  }
 }

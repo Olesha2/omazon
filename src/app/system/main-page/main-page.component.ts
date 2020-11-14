@@ -12,7 +12,12 @@ export class MainPageComponent implements OnInit {
   products: Product[];
   error = '';
   success = '';
-
+categoryNames = [
+  "Недвижимость",
+  "Транспорт",
+  "Хобби",
+  "Электроника"
+];
   constructor(
     private productService: MainPageService,
     private route: ActivatedRoute

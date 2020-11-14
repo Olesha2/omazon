@@ -8,8 +8,8 @@
     </div>
   </div>
   <div class="tovar__edit">
-    <a [routerLink]="['/system/product', items.id_tovar]">Редагувати</a>
-    <a href="">Видалити</a>
+    <a [routerLink]="['/system/edit', items.id_tovar]">Редагувати</a>
+    <a (click)="deleteProduct(items.id_tovar)">Видалити</a>
   </div>
 </div>
 

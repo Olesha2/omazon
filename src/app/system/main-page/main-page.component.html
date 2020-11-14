@@ -1,7 +1,7 @@
 <div class="categories">
   <div id="category">
     <h3>Недвижимость</h3>
-    <a [routerLink]="['/system/categories', 1]">Смотреть все </a>
+    <a [routerLink]="['/system/categories', this.categoryNames[0]]">Смотреть все </a>
     <div class="images-tovars">
       <ul class="imageproduct" href="">
         <li *ngFor="let item of products">
@@ -15,7 +15,7 @@
   </div>
   <div id="category">
     <h3>Транспорт</h3>
-    <a [routerLink]="['/system/categories', 2]">Смотреть все </a>
+    <a [routerLink]="['/system/categories', this.categoryNames[1]]">Смотреть все </a>
     <div class="images-tovars">
       <ul class="imageproduct" href="">
         <li *ngFor="let item of products">
@@ -29,7 +29,7 @@
   </div>
   <div id="category">
     <h3>Хобби</h3>
-    <a [routerLink]="['/system/categories', 3]">Смотреть все </a>
+    <a [routerLink]="['/system/categories', this.categoryNames[2]]">Смотреть все </a>
     <div class="images-tovars">
       <ul class="imageproduct" href="">
         <li *ngFor="let item of products">
@@ -43,7 +43,7 @@
   </div>
   <div id="category">
     <h3>Электроника</h3>
-    <a [routerLink]="['/system/categories', 4]">Смотреть все </a>
+    <a [routerLink]="['/system/categories', this.categoryNames[3]]">Смотреть все </a>
     <div class="images-tovars">
       <ul class="imageproduct" href="">
         <li *ngFor="let item of products">

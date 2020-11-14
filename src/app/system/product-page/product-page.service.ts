@@ -40,11 +40,12 @@ export class productPageService {
   }
 
   // tslint:disable-next-line:typedef
-  postBet(id: string, betts, idClient) {
+  postBet(id: string, betts : string, idClient) {
     const formData = new FormData();
     formData.append('id', id);
     formData.append('idClient', idClient);
-    Object.keys(betts).forEach(key => formData.append(key, betts[key]));
+    formData.append('bet', betts);
+
     return this.http.post<any>(`${this.baseUrl}/post_bet.php`, formData);
   }
 

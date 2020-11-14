@@ -16,9 +16,8 @@ export class SearchComponent implements OnInit {
 
   form: FormGroup;
   products: productSearch[];
-  products1: productSearch[];
   error: string;
-  searchName = this.route.snapshot.params.name;
+  searchName = '';
   category: Categories[];
   private mess: string;
 
@@ -32,12 +31,20 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       'category': new FormControl(0, [Validators.required]),
-      'minDay': new FormControl(null, [Validators.required, Validators.pattern('[1-6]+')]),
-      'maxDay': new FormControl(null, [Validators.required, Validators.pattern('[2-7]+')]),
-      'rateMin': new FormControl(null, [Validators.required, Validators.pattern('[0-9]+')]),
-      'rateMax': new FormControl(null, [Validators.required, Validators.pattern('[0-9]+')])
+      'minDay': new FormControl(0, [Validators.required, Validators.pattern('[1-6]+')]),
+      'maxDay': new FormControl(0, [Validators.required, Validators.pattern('[2-7]+')]),
+      'rateMin': new FormControl(0, [Validators.required, Validators.pattern('[0-9]+')]),
+      'rateMax': new FormControl(0, [Validators.required, Validators.pattern('[0-9]+')])
     });
     this.getCategories();
+    if (this.route.snapshot.params.name){
+      this.searchName = this.route.snapshot.params.name;
+    }else{
+      this.form.value.category = this.route.snapshot.params.idCategory;
+      this.form.patchValue({
+        category: this.route.snapshot.params.idCategory
+      });
+    }
     this.searchService.updateSearch(this.searchName);
     this.searchService.search$.subscribe(queryString => {
       this.searchName = queryString;
@@ -47,18 +54,11 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value);
-    this.filterProducts(
-      this.form.value.category,
-      this.form.value.minDay,
-      this.form.value.maxDay,
-      this.form.value.rateMin,
-      this.form.value.rateMax
-    );
+    this.getProductSearch();
   }
 
   getProductSearch(): void {
-    this.searchService.getProducts(this.searchName).subscribe(
+    this.searchService.getProducts(this.searchName, this.form).subscribe(
       (res: productSearch[]) => {
         console.log(res);
         this.products = res.map(item => new productSearch({...item}));
@@ -84,23 +84,6 @@ export class SearchComponent implements OnInit {
       this.mess = 'день';
     }
     return this.mess;
-  }
-
-  filterProducts(
-    category: string,
-    daysMin: number,
-    daysMax: number,
-    minRate: number,
-    maxRate: number,
-  ) {
-
-if(category!="0"){
-
-   this.products.filter(value => category);
-
-
-  console.log(this.products1);
-}
   }
 
   getCategories(): void {

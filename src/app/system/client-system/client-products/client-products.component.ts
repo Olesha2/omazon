@@ -54,4 +54,16 @@ export class ClientProductsComponent implements OnInit {
     }
     return this.mess;
   }
+
+  deleteProduct(id_tovar: number) {
+    let confirm1 = confirm('Ви дійсно хочете видалити цей товар');
+    if (confirm1){
+      this.clientProductsService.deleteProduct(id_tovar.toString()).subscribe((id: string) => {
+        this.getClientProducts();
+      });
+    }
+    else{
+      console.log('ничего не делаем');
+    }
+  }
 }

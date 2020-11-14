@@ -68,14 +68,24 @@ body {
 
 .rate, .win {
   display: flex;
-  justify-content: space-between;
   font-size: 24px;
   padding-top: 12px;
+  margin: 0 auto;
 }
-
+.name-rate {
+  width: 40%;
+}
+.win div {
+  width: 33.333%;
+}
+.win div:first-child {
+  width: 60%;
+}
+.status {width: 40%;}
 .src-page > a {
   text-decoration: none;
   color: #73b7da;
+  float: right;
 }
 
 .src-page > a:hover {

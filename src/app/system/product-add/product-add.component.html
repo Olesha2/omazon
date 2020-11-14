@@ -73,11 +73,13 @@
         class="add-desc"
         formControlName="about"
       >
-        <span class="form-help-text"
-              *ngIf="form.get('about').invalid && form.get('about').touched"
-        >
-          </span>
+
       </textarea>
+      <span class="form-help-text"
+            *ngIf="form.get('about').invalid && form.get('about').touched"
+      >
+        Описання не може бути порожнім
+          </span>
     </div>
 
     <div class="add-photo">
