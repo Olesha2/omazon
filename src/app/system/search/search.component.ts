@@ -96,4 +96,15 @@ export class SearchComponent implements OnInit {
       }
     );
   }
+
+  deleteFilters() {
+    this.form.patchValue({
+      category: 0,
+      minDay: 0,
+      maxDay: 0,
+      rateMin: 0,
+      rateMax: 0
+    });
+    this.getProductSearch();
+  }
 }

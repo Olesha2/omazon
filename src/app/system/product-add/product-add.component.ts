@@ -7,7 +7,7 @@ import {ProductAddService} from './product-add.service';
 import {Products} from './product.model';
 import {HttpClient} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ProductsEdit} from './ProductEdit';
 
 @Component({
@@ -30,7 +30,8 @@ export class ProductAddComponent implements OnInit {
     private route: ActivatedRoute,
     private categoryService: CategoryService,
     private productAddService: ProductAddService,
-    private http: HttpClient) {
+    private http: HttpClient,
+    private router: Router) {
   }
 
 
@@ -53,11 +54,18 @@ this.ifEdit();
     this.form.value.id = this.cookieService.get('id');
     const {name, category, price, about, photos, min_price, id} = this.form.value;
     const product = new Products(name, category, price, about, photos, min_price, id);
+    if(this.route.snapshot.params.id_tov){
+      alert("Toвар успішно відредаговано");
+
+    }else{
+      alert("Toвар успішно додано");
+    }
     // tslint:disable-next-line:no-shadowed-variable
     console.log(this.form.value);
     this.productAddService.addProduct(product, this.edId).subscribe((product: Products) => {
       console.log(this.form.value);
     });
+    this.router.navigate(['/system/clientSys/client_products']);
   }
 
   getCategories(): void {

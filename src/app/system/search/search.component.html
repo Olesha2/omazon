@@ -31,7 +31,7 @@
     </div>
     <div class="enter">
       <button type="submit" class="enter-filter">Примінити фільтри</button>
-      <button class="drop-filter">Скасувати фільтри</button>
+      <button class="drop-filter" (click)="deleteFilters()">Скасувати фільтри</button>
     </div>
   </form>
 </div>
@@ -49,7 +49,8 @@
     <div class="info">
       <span>Актуальна ставка: {{items.samaStavka}}</span>
       <span>Мінімальна ставка: {{items.minRate}}</span>
-      <span>Дата окінчення: {{7 - items.dayloss}} {{Days(7 - items.dayloss)}}</span>
+      <span *ngIf="7 - items.dayloss > 0">Дата окінчення: {{7 - items.dayloss}} {{Days(7 - items.dayloss)}}</span>
+      <span *ngIf="7 - items.dayloss <= 0">Ставки на цій товар закінчено</span>
     </div>
     <div class="go-in-tovar">
       <a [routerLink]="['/system/product', items.id_tovar]">На сторінку</a>
