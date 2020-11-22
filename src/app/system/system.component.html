@@ -13,10 +13,7 @@
         <div class="znak-menu"></div>
       </div>
       <div class="menu-hover">
-        <a href="" class="li">Недвижимость</a>
-        <a href="" class="li">Траспорт</a>
-        <a href="" class="li">Хобби</a>
-        <a href="" class="li">Электроника</a>
+        <a *ngFor="let it of categoryNames" [routerLink]="['/system/categories', it]" class="li">{{it}}</a>
       </div>
     </div>
     <div id="icon">
@@ -34,9 +31,9 @@
     <div id="my-profile">
       <img src="http://kyrsovoi/S2.png" width="38x">
       <h1>
-        <a *ngIf="IfAuth(); else succesStatus" [routerLink]="['/system/clientSys/client', id]">Мой профиль</a>
+        <a *ngIf="IfAuth(); else succesStatus" [routerLink]="['/system/clientSys/client', id]">Мій профіль</a>
         <ng-template #succesStatus>
-          <a [routerLink]="['../registration']">Мой профиль</a>
+          <a [routerLink]="['../registration']">Мій профіль</a>
         </ng-template>
 
       </h1>
@@ -49,9 +46,9 @@
 
 <footer>
   <div id="information">
-    <a href=""><h5>Условия пользования</h5></a>
-    <a href=""><h5>Помощь и Обратная связь</h5></a>
-    <a href=""><h5>Политика конфиденциальности</h5></a>
+    <a [routerLink]="['/system/main']"><h5>Умови користування</h5></a>
+    <a [routerLink]="['/system/main']"><h5>Допомога і Зворотній зв'язок</h5></a>
+    <a [routerLink]="['/system/main']"><h5>Політика конфіденційності</h5></a>
   </div>
-  <button (click)="LohOut()">выйти</button>
+
 </footer>

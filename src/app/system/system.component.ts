@@ -14,7 +14,18 @@ import {SearchService} from './search/search.service';
 export class SystemComponent {
   id = this.cookieService.get('id');
   form: FormGroup;
-
+  categoryNames = [ // ydali  i napishi normalniy zapros na bekend
+    "Нерухомість",
+    "Траспорт",
+    "Хобі",
+    "Електроніка",
+    "Інструменти для дому",
+    "Товари для дітей",
+    "Одяг",
+    "Спорт і туризм",
+    "Товари для бізнесу",
+    "Інше"
+  ];
   constructor(
     private cookieService: CookieService,
     private router: Router,
@@ -39,8 +50,5 @@ export class SystemComponent {
     return this.cookieService.get('user');
   }
 
-  LohOut() {
-    this.cookieService.delete('user');
-    this.cookieService.delete('id');
-  }
+
 }

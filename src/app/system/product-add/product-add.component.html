@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 
 
-<div class="add-new-tovar-text">Додавання нового товару</div>
+<div class="add-new-tovar-text">{{this.messAddOrEdit}}</div>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="block-add-pole">
     <div class="name-tovar">

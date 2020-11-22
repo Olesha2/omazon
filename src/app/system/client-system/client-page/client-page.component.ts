@@ -4,6 +4,7 @@ import {ClientPageService} from './client-page.service';
 import {Client} from './client';
 import {productClientwins} from './product-clientwins';
 import {clientbets} from './clientbets';
+import {CookieService} from 'ngx-cookie-service';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class ClientPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private clientPageService: ClientPageService
+    private clientPageService: ClientPageService,
+    private cookieService: CookieService,
   ) {
   }
 
@@ -67,5 +69,10 @@ export class ClientPageComponent implements OnInit {
         this.error = err;
       }
     );
+  }
+
+  LogOut() {
+    this.cookieService.delete('user');
+    this.cookieService.delete('id');
   }
 }

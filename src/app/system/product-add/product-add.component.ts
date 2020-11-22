@@ -21,6 +21,7 @@ export class ProductAddComponent implements OnInit {
   edId = '0';
   error = '';
   success = '';
+  messAddOrEdit = 'Додавання нового товару';
   selectedFile: File[] = [];
   productEdit: ProductsEdit;
   links: Array<string | ArrayBuffer> = [];
@@ -39,7 +40,7 @@ export class ProductAddComponent implements OnInit {
 this.ifEdit();
     this.getCategories();
     this.form = new FormGroup({
-      'name': new FormControl(null, [Validators.required, Validators.maxLength(50)]),
+      'name': new FormControl(null, [Validators.required, Validators.maxLength(100)]),
       'category': new FormControl(1, [Validators.required]),
       'price': new FormControl(null, [Validators.required, Validators.pattern('[0-9]+')]),
       'about': new FormControl(null, [Validators.required]),
@@ -97,6 +98,7 @@ this.ifEdit();
     if(this.route.snapshot.params.id_tov){
 this.EditProduct();
 this.edId = this.route.snapshot.params.id_tov;
+      this.messAddOrEdit = 'Редагування товару';
     }
   }
   EditProduct(){

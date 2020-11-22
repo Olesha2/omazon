@@ -7,7 +7,7 @@ import {ClientPageComponent} from './client-system/client-page/client-page.compo
 import {ProductPageComponent} from './product-page/product-page.component';
 import {AuthGuard} from '../auth-guard.service';
 import {NotFoundComponent} from '../not-found/not-found.component';
-import {ContactsPageComponent} from './contacts-page/contacts-page.component';
+
 import {ClientProductsComponent} from './client-system/client-products/client-products.component';
 import {ClientBetsComponent} from './client-system/client-bets/client-bets.component';
 import {ClientWinsComponent} from './client-system/client-wins/client-wins.component';
@@ -27,7 +27,6 @@ const routes: Routes = [
       {path: 'product/:id', component: ProductPageComponent},
       {path: 'categories', redirectTo: 'error'},
       {path: 'error', component: NotFoundComponent},
-      {path: 'contact', component: ContactsPageComponent},
       {path: 'search', redirectTo: 'error'},
       {path: 'search/:name', component: SearchComponent},
       {path: 'categories/:idCategory', component: SearchComponent},

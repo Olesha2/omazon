@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
 import {SystemRoutingModule} from './system-routing.module';
 import {MainPageComponent} from './main-page/main-page.component';
-import {ContactsPageComponent} from './contacts-page/contacts-page.component';
 import {SystemComponent} from './system.component';
 import {ProductAddComponent} from './product-add/product-add.component';
 import {ClientPageComponent} from './client-system/client-page/client-page.component';
@@ -23,7 +22,6 @@ import {SearchComponent} from './search/search.component';
   ],
   declarations: [
     MainPageComponent,
-    ContactsPageComponent,
     SystemComponent,
     ProductAddComponent,
     ClientPageComponent,

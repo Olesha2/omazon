@@ -2,7 +2,7 @@
   <div class="tovar__inner">
     <img src="http://kyrsovoi/photos/{{items.img}}.jpg">
     <div class="text">
-      <span>{{items.name}}</span>
+      <span><a [routerLink]="['/system/product', items.id_tovar]">{{items.name}}</a></span>
       <span *ngIf="7 - items.dayloss > 0">До закінчення ставок: {{7 - items.dayloss}} {{Days(7 - items.dayloss)}}</span>
       <span *ngIf="7 - items.dayloss <= 0">Ставки на цій товар закінчено</span>
       <span>Остання ставка: {{items.samaStavka}} грн.</span>

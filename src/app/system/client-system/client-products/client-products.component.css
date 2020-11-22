@@ -25,6 +25,7 @@
 .tovar__inner img {
   width: 150px;
   margin-left: 1%;
+  max-width: 140px;
 }
 
 

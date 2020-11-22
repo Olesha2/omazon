@@ -101,6 +101,7 @@ h1, h2, h3, h4, h5 {
   position: absolute;
   padding-left: 5px;
   padding-top: 2px;
+
 }
 
 #my-profile {
@@ -114,6 +115,7 @@ h1, h2, h3, h4, h5 {
 #my-profile > img {
   margin-left: 20px;
   position: absolute;
+
 }
 
 #my-profile > h1 {
@@ -135,6 +137,7 @@ h1, h2, h3, h4, h5 {
   max-width: 1400px;
   min-height: 165vh;
   margin: auto;
+  padding-bottom: 20px;
 }
 
 footer {

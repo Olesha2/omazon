@@ -12,11 +12,17 @@ export class MainPageComponent implements OnInit {
   products: Product[];
   error = '';
   success = '';
-categoryNames = [
-  "Недвижимость",
-  "Транспорт",
-  "Хобби",
-  "Электроника"
+categoryNames = [// ydali  i napishi normalniy zapros na bekend
+  "Нерухомість",
+  "Траспорт",
+  "Хобі",
+  "Електроніка",
+  "Інструменти для дому",
+  "Товари для дітей",
+  "Одяг",
+  "Спорт і туризм",
+  "Товари для бізнесу",
+  "Інше"
 ];
   constructor(
     private productService: MainPageService,
