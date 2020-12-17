@@ -26,6 +26,7 @@ const routes: Routes = [
       {path: 'product', redirectTo: 'error'},
       {path: 'product/:id', component: ProductPageComponent},
       {path: 'categories', redirectTo: 'error'},
+      {path: 'client', redirectTo: 'error'},
       {path: 'error', component: NotFoundComponent},
       {path: 'search', redirectTo: 'error'},
       {path: 'search/:name', component: SearchComponent},

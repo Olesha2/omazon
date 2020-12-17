@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {productSearch} from './productSearch';
 import {SearchService} from './search.service';
 import {ActivatedRoute} from '@angular/router';
@@ -6,13 +6,14 @@ import {CategoryService} from '../product-add/category.service';
 import {Product} from '../main-page/product';
 import {Categories} from '../product-add/category';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
   products: productSearch[];
@@ -20,6 +21,7 @@ export class SearchComponent implements OnInit {
   searchName = '';
   category: Categories[];
   private mess: string;
+  private searchSubscribe$: Subscription;
 
   constructor(
     private searchService: SearchService,
@@ -46,10 +48,11 @@ export class SearchComponent implements OnInit {
       });
     }
     this.searchService.updateSearch(this.searchName);
-    this.searchService.search$.subscribe(queryString => {
-      this.searchName = queryString;
-      this.getProductSearch();
-
+    this.searchSubscribe$ = this.searchService.search$
+      .subscribe(queryString =>
+      {
+        this.searchName = queryString;
+        this.getProductSearch();
     });
   }
 
@@ -106,5 +109,9 @@ export class SearchComponent implements OnInit {
       rateMax: 0
     });
     this.getProductSearch();
+  }
+
+  ngOnDestroy(): void {
+    this.searchSubscribe$.unsubscribe();
   }
 }
