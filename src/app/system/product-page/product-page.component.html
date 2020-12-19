@@ -82,5 +82,10 @@
     <span>Категория: {{product.catName}}</span>
     <span><p>{{product.about}}</p></span>
   </div>
+<div class="rate-prod">
+  <div class="rating-result">
+    <span *ngFor="let i of rates" class="{{i}}"></span>
 
+  </div>
+  </div>
 </form>

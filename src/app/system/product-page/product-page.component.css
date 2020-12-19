@@ -174,3 +174,30 @@ padding: 1px;
   text-align: right;
   padding-right: 120px;
 }
+.rate-prod{
+  padding: 5px;
+  background-color: #fff;
+  min-height: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.rating-result {
+  width: 265px;
+  margin: 0 auto;
+}
+.rating-result span {
+  padding: 0;
+  font-size: 32px;
+  margin: 0 3px;
+  line-height: 1;
+  color: lightgrey;
+  text-shadow: 1px 1px #bbb;
+}
+.rating-result > span:before {
+  content: '★';
+}
+.rating-result > span.active {
+  color: gold;
+  text-shadow: 1px 1px #c60;
+}

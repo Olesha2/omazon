@@ -10,7 +10,7 @@ export class Product {
   dayloss: number;
   cliName: string;
   cliEmail: string;
-
+  rate: number;
   constructor(
     values: object
   ) {

@@ -17,6 +17,7 @@ export class ProductPageComponent implements OnInit {
   // tslint:disable-next-line:no-shadowed-variable
   product: Product;
   images: imageg[];
+  rates = ['', '', '', '', ''];
   error = '';
   success = '';
   id: string;
@@ -38,7 +39,6 @@ export class ProductPageComponent implements OnInit {
 
     this.getProduct();
     this.getImages();
-
   }
 
   getProduct(): void {
@@ -49,6 +49,9 @@ export class ProductPageComponent implements OnInit {
         this.form = new FormGroup({
           bet: new FormControl(null, [Validators.required, Validators.pattern('[0-9]+'), Validators.min(this.product.min_rate)])
         });
+        for (let i = 0; i < this.product.rate; i++){
+          this.rates[i] = 'active';
+          console.log(this.rates);}
       },
       (err) => {
         this.error = err;
