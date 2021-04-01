@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {UsersService} from '../../shared/services/users.service';
 import {User} from '../../shared/models/user.model';
 import {LoginService} from './login.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../../auth.service';
 import {CookieService} from 'ngx-cookie-service';
 import {Login} from './login';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +14,7 @@ import {Login} from './login';
 })
 export class LoginComponent implements OnInit {
   loginName = '';
-  message = "Пожалуйста авторизуйтесь";
+  message = 'Будь ласка авторизуйтесь';
   form: FormGroup;
   messageColor = 'black';
 
@@ -24,47 +24,54 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private auth: AuthService,
     private cookieService: CookieService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params)=>{
-      if(params['NowCanLogin']){
-      this.loginName = params['NowCanLogin'];}
-      if(this.loginName !=''){
-      this.message = this.loginName + " пожалуйста авторизуйтесь";}
-    })
+    this.route.queryParams.subscribe((params) => {
+      if (params['NowCanLogin']) {
+        this.loginName = params['NowCanLogin'];
+      }
+      if (this.loginName != '') {
+        this.message = this.loginName + ' будь ласка авторизуйтесь';
+      }
+    });
     this.form = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password : new FormControl(null, [Validators.required, Validators.minLength(4)])
+      password: new FormControl(null, [Validators.required, Validators.minLength(4)])
     });
   }
-  onSubmit(){
+
+  onSubmit() {
     const {email, password} = this.form.value;
     const user = new User(email, password, 'AAA');
 
     // tslint:disable-next-line:no-shadowed-variable
-    this.loginService.getUser(user).subscribe(( baf: Login) => {
-      if(baf.match != 0){
+    this.loginService.getUser(user).subscribe((baf: Login) => {
+      // tslint:disable-next-line:triple-equals
+      if (baf.match != 0) {
         this.changeAuthStatus('login');
         console.log(baf);
         this.cookieService.set('user', String(1));
         this.cookieService.set('id', String(baf.id_client));
-        this.router.navigate(['./system/main'],{
-    queryParams:{
-      nowCanLoggin: true
-    }
-  });
-      }else{
+        this.router.navigate(['./system/main'], {
+          queryParams: {
+            nowCanLoggin: true
+          }
+        });
+      } else {
         this.messageColor = 'red';
-        this.message = "Что-то пошло не так. Проверьте ваш логин и пароль и попробуйте ещё раз";
+        this.message = 'Щось пішло не так. Перевірте ваш логін і пароль і спробуйте ще раз';
       }
     });
   }
-   changeAuthStatus(status: string){
-if (status === 'login'){
-  this.auth.logIn();
-}else{
-  this.auth.logOut();
-}
-}
+
+  changeAuthStatus(status: string) {
+    if (status === 'login') {
+      this.auth.logIn();
+    } else {
+      this.auth.logOut();
+    }
+  }
+
 }

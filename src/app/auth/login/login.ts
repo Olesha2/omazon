@@ -1,6 +1,7 @@
 export class Login {
-    match: number;
-    id_client: number;
+  match: number;
+  id_client: number;
+
   constructor(
     values: object
   ) {

@@ -9,12 +9,14 @@ import {map} from 'rxjs/operators';
 })
 export class RegistrationService {
   bul = 0;
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {
+  }
 
   createNewUser(user: User): Observable<any> {
     console.log(user);
     const formData = new FormData();
-    Object.keys(user).forEach( key => formData.append(key, user[key]));
+    Object.keys(user).forEach(key => formData.append(key, user[key]));
     return this.http.post<any>(`http://kyrsovoi/registration.php`, formData).pipe(
       map((res) => {
         this.bul = res['data'];

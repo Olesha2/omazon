@@ -1,58 +1,63 @@
-
-  <p class="text-xs-center" style="color: {{messageColor}}">{{message}}</p>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="form-group"
-    [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}"
+<p class="text-xs-center" style="color: {{messageColor}}">{{message}}</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group"
+       [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}"
+  >
+    <label for="email">Email</label>
+    <input
+      type="text"
+      class="form-control underlined"
+      id="email"
+      placeholder="Введіть ваш email"
+      formControlName="email"
     >
-      <label for="email">Email</label>
-      <input
-        type="text"
-        class="form-control underlined"
-        id="email"
-        placeholder="Введите ваш email"
-        formControlName="email"
-      >
-      <span class="form-help-text"
-      *ngIf="form.get('email').invalid && form.get('email').touched"
-      >
-        <span *ngIf="form.get('email')['errors']['required']">email не может быть пустым</span>
-        <span *ngIf="form.get('email')['errors']['email']">Введите корректный email</span>
+    <span class="form-help-text"
+          *ngIf="form.get('email').invalid && form.get('email').touched"
+    >
+        <span *ngIf="form.get('email')['errors']['required']">email не може бути порожнім</span>
+        <span *ngIf="form.get('email')['errors']['email']">Введіть коректний email</span>
       </span>
-    </div>
-    <div
-      class="form-group"
-      [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}"
+  </div>
+  <div
+    class="form-group"
+    [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}"
+  >
+    <label for="password">Пароль</label>
+    <input
+      type="password"
+      class="form-control underlined"
+      id="password"
+      placeholder="Пароль"
+      formControlName="password"
     >
-      <label for="password">Пароль</label>
-      <input
-        type="password"
-        class="form-control underlined"
-        id="password"
-        placeholder="Пароль"
-        formControlName="password"
-      >
-      <span class="form-help-text"
-            *ngIf="form.get('password').invalid && form.get('password').touched"
-      >
-        <span *ngIf="form.get('password')['errors']['required']">Пароль не может быть пустым</span>
+    <span class="form-help-text"
+          *ngIf="form.get('password').invalid && form.get('password').touched"
+    >
+        <span *ngIf="form.get('password')['errors']['required']">Пароль не може бути порожнім</span>
         <span *ngIf="form.get('password')['errors']['minlength']">
-          Пароль должен быть длиннее {{form.get('password')['errors']['minlength']['requiredLength']}} символов.
-          Сейчас {{form.get('password')['errors']['minlength']['actualLength']}}</span>
+          Пароль повинен бути довшим {{form.get('password')['errors']['minlength']['requiredLength']}} символів.
+          Зараз {{form.get('password')['errors']['minlength']['actualLength']}}</span>
       </span>
-    </div>
-    <div class="form-group">
-      <button
+  </div>
+  <div class="form-group">
+    <button
 
-        type="submit"
-        class="btn btn-block btn-primary"
+      type="submit"
+      class="btn btn-block btn-primary"
       [disabled]="form.invalid"
 
-      >Войти</button>
-    </div>
-    <div class="form-group">
-      <p class="text-muted text-xs-center">
-        Нет аккаунта? <a [routerLink]="'/registration'">Зарегистрироваться!</a>
-      </p>
-    </div>
-  </form>
+    >Увійти
+    </button>
+  </div>
+  <div class="form-group">
+    <p class="text-muted text-xs-center">
+      Немає облікового запису? <a [routerLink]="'/registration'">Зареєструватися!</a>
+    </p>
+    <p class="text-muted text-xs-center">
+      забули свій пароль? <a [routerLink]="'/registration'">нагадати</a>
+    </p>
+
+
+  </div>
+</form>
 

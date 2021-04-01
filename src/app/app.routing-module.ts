@@ -7,12 +7,12 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'system', loadChildren: () => import('./system/system.module').then(mod => mod.SystemModule)},
   {path: 'error', component: NotFoundComponent},
- // {path: '**', redirectTo: '/error'},
+  // {path: '**', redirectTo: '/error'},
 
 ];
 
 @NgModule({
-imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
