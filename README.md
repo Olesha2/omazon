@@ -1,6 +1,6 @@
 This project is an auction site where people can register products, place bids on them. The site has a user's personal account, search, the ability to view your bids and ads.
 
-# Proba1
+# Omazon
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.1.
 
